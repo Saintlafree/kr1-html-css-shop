@@ -52,6 +52,7 @@
 - Практическая работа 4: добавлены CSS-переменные, состояния интерфейса и упорядочена структура стилей.
 - Практическая работа 5: создана многостраничная структура сайта, добавлены единая навигация и якорные ссылки.
 - Практическая работа 6: добавлены Flexbox-навигация и Grid-раскладка карточек и каталога.
+- Практическая работа 7: выполнен рефакторинг CSS-стилей по методологии БЭМ.
 
 ## Реализованные элементы интерфейса
 
@@ -98,6 +99,27 @@
 - Flexbox для внутренней структуры карточек товаров (`flex-direction: column`, кнопка прижата к низу через `margin-top: auto`);
 - CSS Grid для сетки карточек (`.products-grid`: `grid-template-columns: repeat(3, 1fr)`, `gap`);
 - CSS Grid для страницы каталога с фильтрами и списком товаров (`.catalog-layout`: `grid-template-columns: 260px 1fr`, `grid-template-areas`, `grid-area`).
+
+## БЭМ-структура проекта
+
+В проекте используются следующие БЭМ-блоки:
+
+- `site-header` — шапка сайта (`site-header__inner`, `site-header__logo`);
+- `site-nav` — основная навигация (`site-nav__list`, `site-nav__item`, `site-nav__link`, модификатор `site-nav__link--active`);
+- `breadcrumbs` — хлебные крошки (`breadcrumbs__link`, `breadcrumbs__current`);
+- `hero` — первый экран главной страницы;
+- `section` — универсальный раздел страницы;
+- `products-grid` — сетка товаров;
+- `product-card` — карточка товара (`__title`, `__description`, `__price`, `__button`, модификаторы `--featured`, `--discount`);
+- `catalog-layout` — структура страницы каталога;
+- `catalog-filters` — фильтры каталога;
+- `order-dialog` — модальное окно заявки;
+- `order-form` — форма заявки (`__field`, `__label`, `__input`, `__select`, `__textarea`, `__actions`);
+- `button` — кнопка (модификаторы `button--primary`, `button--secondary`, `button--disabled`);
+- `success-message` — сообщение об успешной отправке;
+- `site-footer` — подвал сайта.
+
+Правила: стилизация только через классы (id используются лишь для якорей и JavaScript), inline-стили отсутствуют, селекторы не глубже двух уровней.
 
 ## Дополнительные элементы
 
