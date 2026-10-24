@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Оформление заявки в учебном интернет-магазине ТехноЛавка: контактные данные, товар, способ доставки.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Оформление заявки — ТехноЛавка">
+  <meta property="og:description" content="Оформление заявки в учебном интернет-магазине ТехноЛавка: контактные данные, товар, способ доставки.">
+  <meta property="og:url" content="https://Saintlafree.github.io/kr1-html-css-shop/order.html">
+  <meta property="og:image" content="https://Saintlafree.github.io/kr1-html-css-shop/images/preview.jpg">
+  <title>Оформление заявки — ТехноЛавка</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-mark" aria-hidden="true">ТЛ</span>
+        ТехноЛавка
+      </a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="order.html" aria-current="page">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="index.html">Главная</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__current" aria-current="page">Оформление заявки</span>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="section">
+      <h1 class="section__title">Оформление заявки</h1>
+      <p class="section__text">
+        Заполните форму, и менеджер свяжется с вами для подтверждения заказа.
+        Оплата при получении.
+      </p>
+    </section>
+
+    <div class="order-layout">
+      <section class="order-page" aria-labelledby="order-page-form-title">
+        <h2 class="visually-hidden" id="order-page-form-title">Форма заявки</h2>
+
+        <form class="order-form order-form--page" id="order-page-form" action="#" method="post" novalidate data-validate data-success="order-success">
+          <fieldset class="order-form__group">
+            <legend class="order-form__legend">1. Контактные данные</legend>
+
+            <div class="order-form__row">
+              <div class="order-form__field">
+                <label class="order-form__label" for="page-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+                <input class="order-form__input" id="page-name" name="name" type="text" minlength="2" autocomplete="name" placeholder="Иван Иванов" required>
+              </div>
+
+              <div class="order-form__field">
+                <label class="order-form__label" for="page-phone">Телефон <span class="order-form__required" aria-hidden="true">*</span></label>
+                <input class="order-form__input" id="page-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" aria-describedby="page-phone-hint" required>
+                <small class="order-form__hint" id="page-phone-hint">Формат: +7 (900) 000-00-00</small>
+              </div>
+            </div>
+
+            <div class="order-form__field">
+              <label class="order-form__label" for="page-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+              <input class="order-form__input" id="page-email" name="email" type="email" autocomplete="email" placeholder="example@mail.ru" required>
+            </div>
+          </fieldset>
+
+          <fieldset class="order-form__group">
+            <legend class="order-form__legend">2. Товар</legend>
+
+            <div class="order-form__row">
+              <div class="order-form__field">
+                <label class="order-form__label" for="page-product">Товар <span class="order-form__required" aria-hidden="true">*</span></label>
+                <select class="order-form__select" id="page-product" name="product" required>
+                  <option value="">Выберите товар</option>
+                      <option value="headphones">Наушники «Звук Pro» — 7 990 ₽</option>
+                      <option value="speaker">Колонка «Волна» — 4 490 ₽</option>
+                      <option value="watch">Умные часы «Пульс» — 7 990 ₽</option>
+                      <option value="powerbank">Аккумулятор «Заряд 20» — 2 490 ₽</option>
+                      <option value="keyboard">Клавиатура «Клик» — 5 990 ₽</option>
+                      <option value="mouse">Мышь «Точка» — 1 490 ₽</option>
+                </select>
+              </div>
+
+              <div class="order-form__field order-form__field--small">
+                <label class="order-form__label" for="page-quantity">Количество</label>
+                <input class="order-form__input" id="page-quantity" name="quantity" type="number" min="1" max="10" value="1">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="order-form__group">
+            <legend class="order-form__legend">3. Доставка</legend>
+
+            <div class="order-form__options">
+              <label class="order-form__option">
+                <input class="order-form__radio" type="radio" name="delivery" value="pickup" required checked>
+                Самовывоз
+              </label>
+              <label class="order-form__option">
+                <input class="order-form__radio" type="radio" name="delivery" value="courier">
+                Курьер по Москве
+              </label>
+              <label class="order-form__option">
+                <input class="order-form__radio" type="radio" name="delivery" value="post">
+                Пункт выдачи по России
+              </label>
+            </div>
+
+            <div class="order-form__row">
+              <div class="order-form__field">
+                <label class="order-form__label" for="page-address">Адрес доставки</label>
+                <input class="order-form__input" id="page-address" name="address" type="text" autocomplete="street-address" placeholder="Город, улица, дом, квартира">
+              </div>
+
+              <div class="order-form__field order-form__field--small">
+                <label class="order-form__label" for="page-date">Желаемая дата</label>
+                <input class="order-form__input" id="page-date" name="date" type="date">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="page-comment">Комментарий к заказу</label>
+            <textarea class="order-form__textarea" id="page-comment" name="comment" rows="4" maxlength="500" placeholder="Например, удобное время звонка"></textarea>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__checkbox-label">
+              <input class="order-form__checkbox" id="page-agreement" name="agreement" type="checkbox" required>
+              Я согласен на обработку персональных данных
+            </label>
+          </div>
+
+          <p class="order-form__note">Поля, отмеченные <span aria-hidden="true">*</span> звёздочкой, обязательны.</p>
+
+          <div class="order-form__actions">
+            <button class="button button--primary button--large" type="submit">Отправить заявку</button>
+            <button class="button button--secondary button--large" type="reset">Очистить форму</button>
+          </div>
+        </form>
+
+        <p class="success-message" id="order-success" role="status" hidden>
+          Заявка отправлена! Мы свяжемся с вами в ближайшее время.
+        </p>
+      </section>
+
+      <aside class="order-aside" aria-labelledby="delivery-title">
+        <h2 class="order-aside__title" id="delivery-title">Способы доставки</h2>
+        <div class="table-wrapper">
+          <table class="product-table product-table--compact">
+            <caption class="product-table__caption">Сравнение способов доставки</caption>
+            <thead class="product-table__head">
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="col">Способ</th>
+                <th class="product-table__cell product-table__cell--head" scope="col">Срок</th>
+                <th class="product-table__cell product-table__cell--head" scope="col">Цена</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="row">Самовывоз</th>
+                <td class="product-table__cell">сегодня</td>
+                <td class="product-table__cell">бесплатно</td>
+              </tr>
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="row">Курьер</th>
+                <td class="product-table__cell">1–2 дня</td>
+                <td class="product-table__cell">390&nbsp;₽</td>
+              </tr>
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="row">Пункт выдачи</th>
+                <td class="product-table__cell">2–7 дней</td>
+                <td class="product-table__cell">от 290&nbsp;₽</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="order-aside__text">При заказе от 5&nbsp;000&nbsp;₽ курьерская доставка бесплатная.</p>
+        <p class="order-aside__text">Есть вопросы? Позвоните: <a href="tel:+79000000000">+7 (900) 000-00-00</a></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">ТехноЛавка</h2>
+        <p class="site-footer__text">Учебный интернет-магазин гаджетов и аксессуаров.</p>
+        <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      </section>
+
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="catalog.html">Каталог</a></li>
+          <li><a class="site-footer__link" href="order.html">Оформить заявку</a></li>
+          <li><a class="site-footer__link" href="index.html#faq">Вопросы и ответы</a></li>
+        </ul>
+      </section>
+
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Контакты</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+          <li><a class="site-footer__link" href="mailto:info@example.com">info@example.com</a></li>
+          <li><a class="site-footer__link" href="contacts.html">Все контакты</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <p class="site-footer__author">
+      Дисциплина «Фронтенд и бэкенд разработка» · Выполнил: Куксов Денис Сергеевич, группа ЭФБО-14-25
+    </p>
+  </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">&uarr;</a>
+</body>
+</html>

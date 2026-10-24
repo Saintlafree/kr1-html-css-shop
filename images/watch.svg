@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Умные часы">
+  <rect width="400" height="300" fill="#e9f7ef"/>
+  <rect x="165" y="40" width="70" height="60" rx="10" fill="#1f8a4c"/>
+  <rect x="165" y="200" width="70" height="60" rx="10" fill="#1f8a4c"/>
+  <rect x="140" y="85" width="120" height="130" rx="30" fill="#1d2233"/>
+  <rect x="154" y="99" width="92" height="102" rx="20" fill="#2f3a52"/>
+  <path d="M168 160 h18 l10 -24 l14 44 l10 -20 h20" fill="none" stroke="#5be39a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="260" y="130" width="10" height="30" rx="4" fill="#1d2233"/>
+</svg>

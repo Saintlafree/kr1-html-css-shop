@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Беспроводная мышь">
+  <rect width="400" height="300" fill="#ffeaea"/>
+  <rect x="145" y="60" width="110" height="180" rx="55" fill="#2b2f40"/>
+  <path d="M200 60 v66" stroke="#4a5068" stroke-width="5"/>
+  <path d="M145 126 h110" stroke="#4a5068" stroke-width="5"/>
+  <rect x="192" y="82" width="16" height="30" rx="8" fill="#ff5a5f"/>
+  <path d="M200 60 c0 -24 30 -24 30 -48" fill="none" stroke="#2b2f40" stroke-width="6" stroke-linecap="round"/>
+</svg>
