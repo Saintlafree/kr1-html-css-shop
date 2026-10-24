@@ -3,18 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Контактная информация учебного интернет-магазина.">
+  <meta name="description" content="Контакты учебного интернет-магазина ТехноЛавка: телефон, e-mail, адрес, режим работы и форма обратной связи.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Контакты — Учебный интернет-магазин">
-  <meta property="og:description" content="Контактная информация учебного интернет-магазина.">
+  <meta property="og:title" content="Контакты — ТехноЛавка">
+  <meta property="og:description" content="Контакты учебного интернет-магазина ТехноЛавка: телефон, e-mail, адрес, режим работы и форма обратной связи.">
+  <meta property="og:url" content="https://Saintlafree.github.io/kr1-html-css-shop/contacts.html">
   <meta property="og:image" content="https://Saintlafree.github.io/kr1-html-css-shop/images/preview.jpg">
-  <title>Контакты — Учебный интернет-магазин</title>
+  <title>Контакты — ТехноЛавка</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="site-header" id="top">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-mark" aria-hidden="true">ТЛ</span>
+        ТехноЛавка
+      </a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
@@ -25,56 +33,155 @@
             <a class="site-nav__link" href="catalog.html">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a>
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+            <a class="site-nav__link" href="order.html">Заявка</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+            <a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="page" id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Контакты</span>
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="index.html">Главная</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__current" aria-current="page">Контакты</span>
+        </li>
+      </ol>
     </nav>
 
     <section class="section">
       <h1 class="section__title">Контакты</h1>
       <p class="section__text">
-        Здесь размещается контактная информация учебного интернет-магазина.
+        Свяжитесь с нами удобным способом или оставьте сообщение через форму обратной связи.
       </p>
-      <ul class="contacts-list">
-        <li class="contacts-list__item">Телефон: +7 (900) 000-00-00</li>
-        <li class="contacts-list__item">E-mail: info@example.com</li>
-        <li class="contacts-list__item">Адрес: г. Москва, учебный проект</li>
-      </ul>
     </section>
 
-    <section class="section" id="feedback">
-      <h2 class="section__title">Обратная связь</h2>
-      <p class="section__text">
-        Для отправки заявки используйте форму в модальном окне на главной
-        странице.
-      </p>
-      <a class="button button--primary" href="index.html#contacts">Перейти к форме</a>
-    </section>
+    <div class="contacts-layout">
+      <section class="contacts-card" aria-labelledby="contacts-info-title">
+        <h2 class="contacts-card__title" id="contacts-info-title">Как с нами связаться</h2>
+        <ul class="contacts-list">
+          <li class="contacts-list__item">
+            <span class="contacts-list__label">Телефон</span>
+            <a class="contacts-list__value" href="tel:+79000000000">+7 (900) 000-00-00</a>
+          </li>
+          <li class="contacts-list__item">
+            <span class="contacts-list__label">E-mail</span>
+            <a class="contacts-list__value" href="mailto:info@example.com">info@example.com</a>
+          </li>
+          <li class="contacts-list__item">
+            <span class="contacts-list__label">Адрес</span>
+            <span class="contacts-list__value">г. Москва, учебный проект (адрес условный)</span>
+          </li>
+        </ul>
+
+        <h3 class="contacts-card__subtitle">Режим работы</h3>
+        <div class="table-wrapper">
+          <table class="product-table product-table--compact">
+            <caption class="product-table__caption">Режим работы пункта выдачи</caption>
+            <thead class="product-table__head">
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="col">Дни</th>
+                <th class="product-table__cell product-table__cell--head" scope="col">Время</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="row">Пн–Пт</th>
+                <td class="product-table__cell">10:00–20:00</td>
+              </tr>
+              <tr class="product-table__row">
+                <th class="product-table__cell product-table__cell--head" scope="row">Сб–Вс</th>
+                <td class="product-table__cell">11:00–18:00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="contacts-card" id="feedback" aria-labelledby="feedback-title">
+        <h2 class="contacts-card__title" id="feedback-title">Обратная связь</h2>
+
+        <form class="order-form" id="feedback-form" action="#" method="post" novalidate data-validate data-success="feedback-success">
+          <div class="order-form__field">
+            <label class="order-form__label" for="feedback-name">Имя <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="feedback-name" name="name" type="text" minlength="2" autocomplete="name" required>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="feedback-email">E-mail <span class="order-form__required" aria-hidden="true">*</span></label>
+            <input class="order-form__input" id="feedback-email" name="email" type="email" autocomplete="email" placeholder="example@mail.ru" required>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__label" for="feedback-message">Сообщение <span class="order-form__required" aria-hidden="true">*</span></label>
+            <textarea class="order-form__textarea" id="feedback-message" name="message" rows="4" minlength="10" maxlength="1000" required></textarea>
+          </div>
+
+          <div class="order-form__field">
+            <label class="order-form__checkbox-label">
+              <input class="order-form__checkbox" id="feedback-agreement" name="agreement" type="checkbox" required>
+              Я согласен на обработку данных
+            </label>
+          </div>
+
+          <div class="order-form__actions">
+            <button class="button button--primary" type="submit">Отправить сообщение</button>
+          </div>
+        </form>
+
+        <p class="success-message" id="feedback-success" role="status" hidden>
+          Сообщение отправлено! Ответим на e-mail в течение рабочего дня.
+        </p>
+
+        <p class="contacts-card__text">Хотите сразу оформить покупку? <a href="order.html">Перейдите к форме заявки</a>.</p>
+      </section>
+    </div>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="contacts">
     <div class="site-footer__inner">
-      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
-      <p class="site-footer__text">Выполнил: Куксов Денис Сергеевич, группа ЭФБО-14-25</p>
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">ТехноЛавка</h2>
+        <p class="site-footer__text">Учебный интернет-магазин гаджетов и аксессуаров.</p>
+        <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      </section>
+
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="catalog.html">Каталог</a></li>
+          <li><a class="site-footer__link" href="order.html">Оформить заявку</a></li>
+          <li><a class="site-footer__link" href="index.html#faq">Вопросы и ответы</a></li>
+        </ul>
+      </section>
+
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Контакты</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+          <li><a class="site-footer__link" href="mailto:info@example.com">info@example.com</a></li>
+          <li><a class="site-footer__link" href="contacts.html">Все контакты</a></li>
+        </ul>
+      </section>
     </div>
+
+    <p class="site-footer__author">
+      Дисциплина «Фронтенд и бэкенд разработка» · Выполнил: Куксов Денис Сергеевич, группа ЭФБО-14-25
+    </p>
   </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">&uarr;</a>
 </body>
 </html>

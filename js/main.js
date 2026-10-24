@@ -1,74 +1,120 @@
-// Получаем модальное окно по id.
+// =========================================================
+// ТехноЛавка — минимальный JavaScript для КР №1.
+// 1. Открытие и закрытие модального окна заявки.
+// 2. Базовая проверка форм перед «отправкой» (backend пока не подключён).
+// Автор: Куксов Денис Сергеевич, ЭФБО-14-25
+// =========================================================
+
+// ---------- 1. Модальное окно ----------
+
+// Получаем модальное окно по id. На страницах без модального окна будет null.
 const orderDialog = document.getElementById('order-dialog');
 
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
+if (orderDialog) {
+  // Все кнопки «Заказать», у которых есть data-атрибут с названием товара.
+  const orderButtons = document.querySelectorAll('[data-product]');
 
-// Получаем кнопку закрытия модального окна.
-const closeDialogButton = document.getElementById('close-order-dialog');
+  // Кнопка «Закрыть» внутри модального окна.
+  const closeDialogButton = document.getElementById('close-order-dialog');
 
-// Получаем скрытое поле, в которое будет записан выбранный товар.
-const selectedProductInput = document.getElementById('selected-product');
+  // Скрытое поле, в которое записывается выбранный товар.
+  const selectedProductInput = document.getElementById('selected-product');
 
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
+  // Строка под заголовком окна, где показываем выбранный товар.
+  const dialogProduct = document.getElementById('order-dialog-product');
 
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
+  orderButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      // Получаем название товара из data-атрибута.
+      const productName = button.dataset.product;
 
-    // Открываем модальное окно.
-    orderDialog.showModal();
+      // Записываем название товара в скрытое поле формы.
+      selectedProductInput.value = productName;
+
+      // Показываем пользователю, какой товар он заказывает.
+      dialogProduct.textContent = `Товар: ${productName}`;
+      dialogProduct.hidden = false;
+
+      // Открываем модальное окно.
+      orderDialog.showModal();
+    });
   });
-});
 
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
+  // Закрываем модальное окно по кнопке «Закрыть».
+  closeDialogButton.addEventListener('click', () => {
+    orderDialog.close();
+  });
 
-// Получаем форму заявки.
-const orderForm = document.getElementById('order-form');
+  // Закрываем окно кликом по затемнённому фону вокруг него.
+  orderDialog.addEventListener('click', (event) => {
+    if (event.target === orderDialog) {
+      orderDialog.close();
+    }
+  });
+}
 
-// Получаем сообщение об успешной отправке.
-const successMessage = document.getElementById('success-message');
+// ---------- 2. Проверка форм ----------
 
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
+// Обрабатываем все формы с атрибутом data-validate:
+// форму в модальном окне, форму заявки (order.html) и форму обратной связи (contacts.html).
+const forms = document.querySelectorAll('form[data-validate]');
 
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
+forms.forEach((form) => {
+  // id сообщения об успехе хранится в атрибуте data-success.
+  const successMessage = document.getElementById(form.dataset.success);
 
-  formElements.forEach((element) => {
-    if (element.willValidate) {
-      element.removeAttribute('aria-invalid');
+  // Модальное окно, если форма находится внутри него.
+  const parentDialog = form.closest('dialog');
+
+  // Поля, которые участвуют в проверке.
+  const fields = Array.from(form.elements).filter((element) => element.willValidate);
+
+  // Как только пользователь исправил поле, убираем подсветку ошибки.
+  fields.forEach((field) => {
+    field.addEventListener('input', () => {
+      if (field.hasAttribute('aria-invalid') && field.checkValidity()) {
+        field.removeAttribute('aria-invalid');
+      }
+    });
+  });
+
+  form.addEventListener('submit', (event) => {
+    // Отменяем стандартную отправку формы, потому что backend пока не подключён.
+    event.preventDefault();
+
+    // Сбрасываем предыдущие признаки ошибок.
+    fields.forEach((field) => field.removeAttribute('aria-invalid'));
+
+    // Проверяем встроенные HTML-ограничения формы (required, type, pattern, minlength).
+    if (!form.checkValidity()) {
+      fields.forEach((field) => {
+        if (!field.checkValidity()) {
+          field.setAttribute('aria-invalid', 'true');
+        }
+      });
+
+      // Показываем стандартные сообщения браузера.
+      form.reportValidity();
+      return;
+    }
+
+    // Очищаем форму.
+    form.reset();
+
+    // Закрываем модальное окно, если форма была в нём.
+    if (parentDialog) {
+      parentDialog.close();
+    }
+
+    // Показываем сообщение об успешной отправке и прокручиваем к нему.
+    if (successMessage) {
+      successMessage.hidden = false;
+      successMessage.scrollIntoView({ block: 'center' });
     }
   });
 
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
-      }
-    });
-
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
-  }
-
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
-
-  // Очищаем форму.
-  orderForm.reset();
-
-  // Закрываем модальное окно.
-  orderDialog.close();
+  // При очистке формы (кнопка type="reset" или form.reset()) убираем подсветку ошибок.
+  form.addEventListener('reset', () => {
+    fields.forEach((field) => field.removeAttribute('aria-invalid'));
+  });
 });

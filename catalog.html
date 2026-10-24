@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог товаров учебного интернет-магазина.">
+  <meta name="description" content="Каталог учебного интернет-магазина ТехноЛавка: аудио, гаджеты и аксессуары с ценами и бейджами.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Каталог товаров — Учебный интернет-магазин">
-  <meta property="og:description" content="Каталог товаров учебного интернет-магазина.">
+  <meta property="og:title" content="Каталог товаров — ТехноЛавка">
+  <meta property="og:description" content="Каталог учебного интернет-магазина ТехноЛавка: аудио, гаджеты и аксессуары с ценами и бейджами.">
+  <meta property="og:url" content="https://Saintlafree.github.io/kr1-html-css-shop/catalog.html">
   <meta property="og:image" content="https://Saintlafree.github.io/kr1-html-css-shop/images/preview.jpg">
-  <title>Каталог товаров — Учебный интернет-магазин</title>
+  <title>Каталог товаров — ТехноЛавка</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="site-header" id="top">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">
+        <span class="site-header__logo-mark" aria-hidden="true">ТЛ</span>
+        ТехноЛавка
+      </a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
@@ -25,106 +32,235 @@
             <a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
+            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="index.html#advantages">Преимущества</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
+            <a class="site-nav__link" href="order.html">Заявка</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="page" id="main">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
-      <a class="breadcrumbs__link" href="index.html">Главная</a>
-      <span class="breadcrumbs__current">Каталог</span>
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="index.html">Главная</a>
+        </li>
+        <li class="breadcrumbs__item">
+          <span class="breadcrumbs__current" aria-current="page">Каталог</span>
+        </li>
+      </ol>
     </nav>
 
     <section class="section">
       <h1 class="section__title">Каталог товаров</h1>
       <p class="section__text">
-        На этой странице представлен учебный каталог товаров.
-        В дальнейшем здесь будут добавлены фильтры, сортировка и более
-        подробные карточки.
+        Все товары разделены на категории. Перейдите к нужной категории по ссылке
+        или используйте фильтры (фильтры пока представлены статической разметкой).
       </p>
+      <ul class="category-links" aria-label="Категории">
+        <li><a class="category-links__link" href="#audio">Аудио</a></li>
+        <li><a class="category-links__link" href="#gadgets">Гаджеты</a></li>
+        <li><a class="category-links__link" href="#accessories">Аксессуары</a></li>
+      </ul>
     </section>
 
     <section class="catalog-layout">
-      <aside class="catalog-filters">
-        <h2 class="catalog-filters__title">Фильтры</h2>
+      <aside class="catalog-filters" aria-labelledby="filters-title">
+        <h2 class="catalog-filters__title" id="filters-title">Фильтры</h2>
 
         <form class="catalog-filters__form" action="#" method="get">
           <fieldset class="catalog-filters__group">
             <legend class="catalog-filters__legend">Категория</legend>
             <label class="catalog-filters__label">
-              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="all">
+              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="all" checked>
               Все товары
             </label>
             <label class="catalog-filters__label">
-              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="popular">
-              Популярные
+              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="audio">
+              Аудио
             </label>
             <label class="catalog-filters__label">
-              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="new">
-              Новинки
+              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="gadgets">
+              Гаджеты
+            </label>
+            <label class="catalog-filters__label">
+              <input class="catalog-filters__checkbox" type="checkbox" name="category" value="accessories">
+              Аксессуары
             </label>
           </fieldset>
 
           <fieldset class="catalog-filters__group">
-            <legend class="catalog-filters__legend">Цена</legend>
-            <label class="catalog-filters__label" for="price-from">От</label>
-            <input class="catalog-filters__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
-
-            <label class="catalog-filters__label" for="price-to">До</label>
-            <input class="catalog-filters__input" id="price-to" name="price-to" type="number" min="0" placeholder="5000">
+            <legend class="catalog-filters__legend">Метка</legend>
+            <label class="catalog-filters__label">
+              <input class="catalog-filters__checkbox" type="checkbox" name="badge" value="new">
+              Новинки
+            </label>
+            <label class="catalog-filters__label">
+              <input class="catalog-filters__checkbox" type="checkbox" name="badge" value="hit">
+              Хиты продаж
+            </label>
+            <label class="catalog-filters__label">
+              <input class="catalog-filters__checkbox" type="checkbox" name="badge" value="discount">
+              Со скидкой
+            </label>
           </fieldset>
 
-          <button class="button button--primary" type="submit">Применить</button>
+          <fieldset class="catalog-filters__group">
+            <legend class="catalog-filters__legend">Цена, ₽</legend>
+            <label class="catalog-filters__label" for="price-from">От</label>
+            <input class="catalog-filters__input" id="price-from" name="price-from" type="number" min="0" step="100" placeholder="0">
+
+            <label class="catalog-filters__label" for="price-to">До</label>
+            <input class="catalog-filters__input" id="price-to" name="price-to" type="number" min="0" step="100" placeholder="10000">
+          </fieldset>
+
+          <div class="catalog-filters__actions">
+            <button class="button button--primary" type="submit">Применить</button>
+            <button class="button button--secondary" type="reset">Сбросить</button>
+          </div>
         </form>
       </aside>
 
-      <section class="catalog-products">
-        <h2 class="catalog-products__title">Список товаров</h2>
+      <section class="catalog-products" aria-labelledby="products-title">
+        <div class="catalog-products__header">
+          <h2 class="catalog-products__title" id="products-title">Список товаров</h2>
+          <p class="catalog-products__count">Найдено товаров: 6</p>
+        </div>
 
-        <div class="products-grid">
+        <section class="catalog-category" id="audio">
+          <h3 class="catalog-category__title">Аудио</h3>
+          <div class="products-grid products-grid--catalog">
           <article class="product-card product-card--featured">
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <span class="product-card__badge product-card__badge--hit">Хит</span>
+            <img class="product-card__image" src="images/headphones.svg" alt="Наушники «Звук Pro»" width="400" height="300" loading="lazy">
+            <p class="product-card__category">Аудио</p>
+            <h3 class="product-card__title">Наушники «Звук Pro»</h3>
+            <p class="product-card__description">Беспроводные наушники с шумоподавлением и до 30 часов работы.</p>
+            <p class="product-card__price">7 990 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <span class="product-card__badge product-card__badge--new">Новинка</span>
+            <img class="product-card__image" src="images/speaker.svg" alt="Колонка «Волна»" width="400" height="300" loading="lazy">
+            <p class="product-card__category">Аудио</p>
+            <h3 class="product-card__title">Колонка «Волна»</h3>
+            <p class="product-card__description">Портативная колонка с защитой от воды IPX7 и мощным басом.</p>
+            <p class="product-card__price">4 490 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+          </div>
+        </section>
+        <section class="catalog-category" id="gadgets">
+          <h3 class="catalog-category__title">Гаджеты</h3>
+          <div class="products-grid products-grid--catalog">
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge product-card__badge--discount">Скидка</span>
+            <img class="product-card__image" src="images/watch.svg" alt="Умные часы «Пульс»" width="400" height="300" loading="lazy">
+            <p class="product-card__category">Гаджеты</p>
+            <h3 class="product-card__title">Умные часы «Пульс»</h3>
+            <p class="product-card__description">Пульсометр, шагомер, уведомления и неделя без подзарядки.</p>
+            <p class="product-card__price">7 990 ₽ <span class="visually-hidden">Цена без скидки: </span><s class="product-card__old-price">9 990 ₽</s></p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="images/powerbank.svg" alt="Аккумулятор «Заряд 20»" width="400" height="300" loading="lazy">
+            <p class="product-card__category">Гаджеты</p>
+            <h3 class="product-card__title">Аккумулятор «Заряд 20»</h3>
+            <p class="product-card__description">Внешний аккумулятор на 20 000 мА·ч с быстрой зарядкой.</p>
+            <p class="product-card__price">2 490 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+          </div>
+        </section>
+        <section class="catalog-category" id="accessories">
+          <h3 class="catalog-category__title">Аксессуары</h3>
+          <div class="products-grid products-grid--catalog">
+          <article class="product-card">
+            <span class="product-card__badge product-card__badge--new">Новинка</span>
+            <img class="product-card__image" src="images/keyboard.svg" alt="Клавиатура «Клик»" width="400" height="300" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Клавиатура «Клик»</h3>
+            <p class="product-card__description">Механическая клавиатура с тихими переключателями и подсветкой.</p>
+            <p class="product-card__price">5 990 ₽</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card product-card--discount">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="button button--primary product-card__button" href="index.html#popular">Подробнее</a>
+            <span class="product-card__badge product-card__badge--discount">Скидка</span>
+            <img class="product-card__image" src="images/mouse.svg" alt="Мышь «Точка»" width="400" height="300" loading="lazy">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Мышь «Точка»</h3>
+            <p class="product-card__description">Лёгкая беспроводная мышь с бесшумными кнопками.</p>
+            <p class="product-card__price">1 490 ₽ <span class="visually-hidden">Цена без скидки: </span><s class="product-card__old-price">1 990 ₽</s></p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <a class="button button--primary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
-        </div>
+          </div>
+        </section>
       </section>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="contacts">
     <div class="site-footer__inner">
-      <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
-      <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
-      <p class="site-footer__text">Выполнил: Куксов Денис Сергеевич, группа ЭФБО-14-25</p>
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">ТехноЛавка</h2>
+        <p class="site-footer__text">Учебный интернет-магазин гаджетов и аксессуаров.</p>
+        <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
+      </section>
+
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Покупателям</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="catalog.html">Каталог</a></li>
+          <li><a class="site-footer__link" href="order.html">Оформить заявку</a></li>
+          <li><a class="site-footer__link" href="index.html#faq">Вопросы и ответы</a></li>
+        </ul>
+      </section>
+
+      <section class="site-footer__column">
+        <h2 class="site-footer__title">Контакты</h2>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+          <li><a class="site-footer__link" href="mailto:info@example.com">info@example.com</a></li>
+          <li><a class="site-footer__link" href="contacts.html">Все контакты</a></li>
+        </ul>
+      </section>
     </div>
+
+    <p class="site-footer__author">
+      Дисциплина «Фронтенд и бэкенд разработка» · Выполнил: Куксов Денис Сергеевич, группа ЭФБО-14-25
+    </p>
   </footer>
+
+  <a class="to-top" href="#top" aria-label="Наверх">&uarr;</a>
 </body>
 </html>

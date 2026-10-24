@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Беспроводные наушники">
+  <rect width="400" height="300" fill="#e8ecff"/>
+  <path d="M120 170 v-20 a80 80 0 0 1 160 0 v20" fill="none" stroke="#3346c9" stroke-width="16" stroke-linecap="round"/>
+  <rect x="98" y="160" width="44" height="78" rx="18" fill="#24339a"/>
+  <rect x="258" y="160" width="44" height="78" rx="18" fill="#24339a"/>
+  <rect x="110" y="172" width="20" height="54" rx="10" fill="#6f80ff"/>
+  <rect x="270" y="172" width="20" height="54" rx="10" fill="#6f80ff"/>
+</svg>
